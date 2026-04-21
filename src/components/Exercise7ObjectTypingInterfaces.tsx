@@ -18,13 +18,10 @@ export const Exercise7ObjectTypingInterfaces = () => {
     { nombre: "Surface Pro", marca: "Microsoft", precio: 1100, disponible: false }
   ];
 
-  useEffect(() => {
-    // Filter only available devices
-    const availableDevices = devices.filter(
-      (device) => device.disponible
-    );
+  const availableDevices = devices.filter((device) => device.disponible);
 
-    console.log('\n--- EXECISE 7 ---');
+  useEffect(() => {
+    console.log('\n--- EJERCICIO 7 ---');
     console.log('Dispositivos disponibles:\n');
     
     availableDevices.forEach((device) => {
@@ -35,10 +32,18 @@ export const Exercise7ObjectTypingInterfaces = () => {
   }, []);
 
   return (
-    <View style={{ marginTop: 80, alignItems: "center" }}>
-      <Text style={{ fontSize: 13, fontWeight: "bold", marginBottom: 15 }}>
-        Ejercicio 7: Tipado con Interfaces - Respuesta en Consola
+    <View style={{ marginTop: 80, alignItems: "center", paddingHorizontal: 20 }}>
+      <Text style={{ fontSize: 16, fontWeight: "bold", marginBottom: 15 }}>
+        Ejercicio 7: Tipado con Interfaces
       </Text>
+      <Text style={{ fontSize: 13, marginBottom: 10 }}>
+        Dispositivos disponibles:
+      </Text>
+      {availableDevices.map((device, index) => (
+        <Text key={index} style={{ fontSize: 12, marginBottom: 3 }}>
+          • {device.nombre} - ${device.precio.toFixed(2)}
+        </Text>
+      ))}
     </View>
   );
 };

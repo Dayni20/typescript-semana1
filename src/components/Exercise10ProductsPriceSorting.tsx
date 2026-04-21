@@ -27,10 +27,10 @@ export const Exercise10ProductsPriceSorting = () => {
     return [...products].sort((a, b) => b.precio - a.precio);
   };
 
-  useEffect(() => {
-    const productsAscending = sortAscending(products);
-    const productsDescending = sortDescending(products);
+  const productsAscending = sortAscending(products);
+  const productsDescending = sortDescending(products);
 
+  useEffect(() => {
     console.log('\n--- EJERCICIO 10 ---');
     
     console.log('Orden ASCENDENTE (menor a mayor precio):');
@@ -47,10 +47,26 @@ export const Exercise10ProductsPriceSorting = () => {
   }, []);
 
   return (
-    <View style={{ marginTop: 80, alignItems: "center" }}>
-      <Text style={{ fontSize: 13, fontWeight: "bold", marginBottom: 15 }}>
-        Ejercicio 10: Ordenamiento de Productos - Respuesta en Consola
+    <View style={{ marginTop: 80, alignItems: "center", paddingHorizontal: 20 }}>
+      <Text style={{ fontSize: 16, fontWeight: "bold", marginBottom: 15 }}>
+        Ejercicio 10: Ordenamiento de Productos
       </Text>
+      <Text style={{ fontSize: 13, fontWeight: "bold", marginTop: 10 }}>
+        Orden Ascendente:
+      </Text>
+      {productsAscending.map((product, index) => (
+        <Text key={index} style={{ fontSize: 12, marginBottom: 2 }}>
+          {index + 1}. {product.nombre} - ${product.precio.toFixed(2)}
+        </Text>
+      ))}
+      <Text style={{ fontSize: 13, fontWeight: "bold", marginTop: 10 }}>
+        Orden Descendente:
+      </Text>
+      {productsDescending.map((product, index) => (
+        <Text key={index} style={{ fontSize: 12, marginBottom: 2 }}>
+          {index + 1}. {product.nombre} - ${product.precio.toFixed(2)}
+        </Text>
+      ))}
     </View>
   );
 };

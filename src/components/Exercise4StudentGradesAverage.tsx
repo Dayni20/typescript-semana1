@@ -25,11 +25,11 @@ export const Exercise4StudentGradesAverage = () => {
     return parseFloat((sum / students.length).toFixed(2));
   };
 
-  useEffect(() => {
-    const average = calculateAverage(students);
-    const status = average >= 7 ? "APROBÓ" : "NECESITA REFUERZO";
+  const average = calculateAverage(students);
+  const status = average >= 7 ? "APROBÓ" : "NECESITA REFUERZO";
 
-    console.log('\n--- EXERCISE 4 ---');
+  useEffect(() => {
+    console.log('\n--- EJERCICIO 4 ---');
     console.log('Estudiantes:');
     students.forEach((student) => {
       console.log(`  - ${student.nombre}: ${student.calificacion}`);
@@ -39,9 +39,20 @@ export const Exercise4StudentGradesAverage = () => {
   }, []);
 
   return (
-    <View style={{ marginTop: 80, alignItems: "center" }}>
-      <Text style={{ fontSize: 13, fontWeight: "bold", marginBottom: 15 }}>
-        Ejercicio 4: Promedio de Calificaciones - Respuesta en Consola
+    <View style={{ marginTop: 80, alignItems: "center", paddingHorizontal: 20 }}>
+      <Text style={{ fontSize: 16, fontWeight: "bold", marginBottom: 15 }}>
+        Ejercicio 4: Promedio de Calificaciones
+      </Text>
+      {students.map((student, index) => (
+        <Text key={index} style={{ fontSize: 12, marginBottom: 3 }}>
+          {student.nombre}: {student.calificacion}
+        </Text>
+      ))}
+      <Text style={{ fontSize: 13, marginTop: 10, fontWeight: "bold" }}>
+        Promedio: {average}
+      </Text>
+      <Text style={{ fontSize: 13, color: average >= 7 ? "green" : "red" }}>
+        El grupo {status}
       </Text>
     </View>
   );

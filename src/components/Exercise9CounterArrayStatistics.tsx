@@ -19,11 +19,11 @@ export const Exercise9CounterArrayStatistics = () => {
     return ages.filter((age) => age < 18).length;
   };
 
-  useEffect(() => {
-    const totalElements = countElements(ages);
-    const adults = countAdults(ages);
-    const minors = countMinors(ages);
+  const totalElements = countElements(ages);
+  const adults = countAdults(ages);
+  const minors = countMinors(ages);
 
+  useEffect(() => {
     console.log('\n--- EJERCICIO 9 ---');
     console.log(`Edades de usuarios: [${ages.join(', ')}]\n`);
     console.log(`Total de usuarios: ${totalElements}`);
@@ -32,9 +32,18 @@ export const Exercise9CounterArrayStatistics = () => {
   }, []);
 
   return (
-    <View style={{ marginTop: 80, alignItems: "center" }}>
-      <Text style={{ fontSize: 13, fontWeight: "bold", marginBottom: 15 }}>
-        Ejercicio 9: Contador y Estadísticas - Respuesta en Consola
+    <View style={{ marginTop: 80, alignItems: "center", paddingHorizontal: 20 }}>
+      <Text style={{ fontSize: 16, fontWeight: "bold", marginBottom: 15 }}>
+        Ejercicio 9: Contador y Estadísticas
+      </Text>
+      <Text style={{ fontSize: 13, marginBottom: 5 }}>
+        Total de usuarios: {totalElements}
+      </Text>
+      <Text style={{ fontSize: 13, marginBottom: 5 }}>
+        Mayores de edad (18+): {adults}
+      </Text>
+      <Text style={{ fontSize: 13 }}>
+        Menores de edad (&lt;18): {minors}
       </Text>
     </View>
   );

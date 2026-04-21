@@ -9,10 +9,10 @@ export const Exercise5ProductsPriceFilter = () => {
     return prices.filter((price) => price < maxPrice);
   };
 
-  useEffect(() => {
-    const maxPrice = 100;
-    const filteredProducts = filterByMaxPrice(prices, maxPrice);
+  const maxPrice = 100;
+  const filteredProducts = filterByMaxPrice(prices, maxPrice);
 
+  useEffect(() => {
     console.log('\n--- EJERCICIO 5 ---');
     console.log(`Precios originales: [${prices.join(', ')}]`);
     console.log(`Precio máximo: $${maxPrice}`);
@@ -21,9 +21,18 @@ export const Exercise5ProductsPriceFilter = () => {
   }, []);
 
   return (
-    <View style={{ marginTop: 80, alignItems: "center" }}>
-      <Text style={{ fontSize: 13, fontWeight: "bold", marginBottom: 15 }}>
-        Ejercicio 5: Filtrado de Productos por Precio - Respuesta en Consola
+    <View style={{ marginTop: 80, alignItems: "center", paddingHorizontal: 20 }}>
+      <Text style={{ fontSize: 16, fontWeight: "bold", marginBottom: 15 }}>
+        Ejercicio 5: Filtrado por Precio
+      </Text>
+      <Text style={{ fontSize: 13, marginBottom: 5 }}>
+        Precio máximo: ${maxPrice}
+      </Text>
+      <Text style={{ fontSize: 13, marginBottom: 5 }}>
+        Productos en rango: {filteredProducts.length}
+      </Text>
+      <Text style={{ fontSize: 13, fontWeight: "bold" }}>
+        Valores: [{filteredProducts.join(', ')}]
       </Text>
     </View>
   );
