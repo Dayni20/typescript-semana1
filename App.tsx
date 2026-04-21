@@ -7,6 +7,9 @@ import { Exercise4StudentGradesAverage } from "./src/screens/Exercise4StudentGra
 import { Exercise5ProductsPriceFilter } from "./src/screens/Exercise5ProductsPriceFilter";
 import { Exercise6ProductSearchArray } from "./src/screens/Exercise6ProductSearchArray";
 import { Exercise7ObjectTypingInterfaces } from "./src/screens/Exercise7ObjectTypingInterfaces";
+import { Exercise8OptionalParametersProduct } from "./src/screens/Exercise8OptionalParametersProduct";
+import { Exercise9CounterArrayStatistics } from "./src/screens/Exercise9CounterArrayStatistics";
+import { Exercise10ProductsPriceSorting } from "./src/screens/Exercise10ProductsPriceSorting";
 
 const App = () => {
   return (
@@ -15,9 +18,12 @@ const App = () => {
       <Exercise2SumAverageGrades />
       <Exercise3PriceTransformationMap />
       <Exercise4StudentGradesAverage />
-      <Exercise5ProductsPriceFilter /> */}
+      <Exercise5ProductsPriceFilter />
       <Exercise6ProductSearchArray />
-      <Exercise7ObjectTypingInterfaces />
+      <Exercise7ObjectTypingInterfaces /> */}
+      <Exercise8OptionalParametersProduct />
+      <Exercise9CounterArrayStatistics />
+      <Exercise10ProductsPriceSorting />
     </ScrollView>
   );
 };
